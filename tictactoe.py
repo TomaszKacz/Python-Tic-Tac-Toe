@@ -1,13 +1,15 @@
 # write your code here
+
+def game_board(rows):
+    first_row = rows[0:3]
+    second_row = rows[3:6]
+    third_row = rows[6:9]
+    print("---------")
+    print("|", *first_row, "|", sep=" ")
+    print("|", *second_row, "|", sep=" ")
+    print("|", *third_row, "|", sep=" ")
+    print("---------")
+
+
 usr_input = input()
-first_row = usr_input[0:3]
-second_row = usr_input[3:6]
-third_row = usr_input[6:9]
-
-
-
-print("---------")
-print("|", *first_row, "|", sep=" ")
-print("|", *second_row, "|", sep=" ")
-print("|", *third_row, "|", sep=" ")
-print("---------")
+game_board(usr_input)
