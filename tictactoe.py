@@ -1,23 +1,25 @@
 # write your code here
 def count_letters(game_input):
-    counterx = 0
-    countero = 0
-    counterspace = 0
+    counts_x = 0
+    counts_o = 0
+    counts_space = 0
     for i in range(0, len(game_input)):
         if game_input[i] == "X":
-            counterx += 1
+            counts_x += 1
         elif game_input[i] == "O":
-            countero += 1
+            counts_o += 1
         elif game_input[i] == " " or game_input[i] == "_":
-            counterspace += 1
-    difference = abs(countero - counterx)
-    return difference, counterspace
-def game_board(first_row, second_row, third_row):
+            counts_space += 1
+    difference = abs(counts_o - counts_x)
+    return difference, counts_space
+
+
+def game_board(g_first_row, g_second_row, g_third_row):
 
     print("---------")
-    print("|", *first_row, "|", sep=" ")
-    print("|", *second_row, "|", sep=" ")
-    print("|", *third_row, "|", sep=" ")
+    print("|", *g_first_row, "|", sep=" ")
+    print("|", *g_second_row, "|", sep=" ")
+    print("|", *g_third_row, "|", sep=" ")
     print("---------")
 
 
@@ -27,14 +29,14 @@ winner_o = 0
 first_row = usr_input[0:3]
 second_row = usr_input[3:6]
 third_row = usr_input[6:9]
-diffrence, whitespace = count_letters(usr_input)
-game_board(first_row,second_row,third_row)
+diff, whitespace = count_letters(usr_input)
+game_board(first_row, second_row, third_row)
 while True:
     usr_move = input("Where u want to place X ")
     real_move = usr_move.split()
     try:
-        for i in range(0 ,len(real_move)):
-            real_move[i] = int(real_move[i])
+        for j in range(0, len(real_move)):
+            real_move[j] = int(real_move[j])
     except ValueError:
         print("You should enter numbers!")
     else:
@@ -44,7 +46,7 @@ while True:
         elif int(real_move[0]) == 1:
             if first_row[int(real_move[1]) - 1] != " " and \
                     first_row[int(real_move[1]) - 1] != "_":
-                    print("This cell is occupied! Choose another one!")
+                print("This cell is occupied! Choose another one!")
             else:
                 first_row = first_row[:int(real_move[1]) - 1] + "X" + first_row[int(real_move[1]):]
                 game_board(first_row, second_row, third_row)
@@ -52,7 +54,7 @@ while True:
         elif int(real_move[0]) == 2:
             if second_row[int(real_move[1]) - 1] != " " and \
                     second_row[int(real_move[1]) - 1] != "_":
-                    print("This cell is occupied! Choose another one!")
+                print("This cell is occupied! Choose another one!")
             else:
                 second_row = second_row[:int(real_move[1]) - 1] + "X" + second_row[int(real_move[1]):]
                 game_board(first_row, second_row, third_row)
@@ -60,7 +62,7 @@ while True:
         elif int(real_move[0]) == 3:
             if third_row[int(real_move[1]) - 1] != " " and \
                     third_row[int(real_move[1]) - 1] != "_":
-                    print("This cell is occupied! Choose another one!")
+                print("This cell is occupied! Choose another one!")
             else:
                 third_row = third_row[:int(real_move[1]) - 1] + "X" + third_row[int(real_move[1]):]
                 game_board(first_row, second_row, third_row)
@@ -83,7 +85,7 @@ while True:
 #     winner_o += 1
 # if first_row[0] == "O" and second_row[1] == "O" and third_row[2] == "O":
 #     winner_o += 1
-# if winner_x > 0 and winner_o > 0 or diffrence >= 2:
+# if winner_x > 0 and winner_o > 0 or diff >= 2:
 #     print("Impossible")
 # elif winner_x > 0 and winner_o == 0:
 #     print("X wins")
@@ -93,5 +95,3 @@ while True:
 #     print("Draw")
 # else:
 #     print("Game not finished")
-
-
