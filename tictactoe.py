@@ -42,7 +42,7 @@ while True:
                 or int(real_move[1]) < 1:
             print("Coordinates should be from 1 to 3!")
         elif int(real_move[0]) == 1:
-            if first_row[int(real_move[1]) - 1] != " " or \
+            if first_row[int(real_move[1]) - 1] != " " and \
                     first_row[int(real_move[1]) - 1] != "_":
                     print("This cell is occupied! Choose another one!")
             else:
@@ -50,7 +50,7 @@ while True:
                 game_board(first_row, second_row, third_row)
                 break
         elif int(real_move[0]) == 2:
-            if second_row[int(real_move[1]) - 1] != " " or \
+            if second_row[int(real_move[1]) - 1] != " " and \
                     second_row[int(real_move[1]) - 1] != "_":
                     print("This cell is occupied! Choose another one!")
             else:
@@ -58,7 +58,7 @@ while True:
                 game_board(first_row, second_row, third_row)
                 break
         elif int(real_move[0]) == 3:
-            if third_row[int(real_move[1]) - 1] != " " or \
+            if third_row[int(real_move[1]) - 1] != " " and \
                     third_row[int(real_move[1]) - 1] != "_":
                     print("This cell is occupied! Choose another one!")
             else:
